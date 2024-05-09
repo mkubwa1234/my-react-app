@@ -4,7 +4,7 @@ function BotSearch({ handleClear, handleChange }) {
   const [query, setQuery] = useState('');
 
   const handleInputChange = event => {
-    const { name, value } = event.target;
+    const { value } = event.target;
     setQuery(value);
     handleChange(value);
   };
@@ -17,15 +17,14 @@ function BotSearch({ handleClear, handleChange }) {
 
   return (
     <div>
-      <form>
+      <form onSubmit={handleSearch}>
         <input
-          name="query"
           placeholder="Search"
           value={query}
           type="text"
           onChange={handleInputChange}
         />
-        <button onClick={handleSearch} type="button">
+        <button type="submit">
           Clear
         </button>
       </form>
